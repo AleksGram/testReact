@@ -19,10 +19,21 @@ it ('has text area and button', () => {
 //.simulate(event[, mock]) => Self
 //.update() => Self
 //.prop(key) => Any
-it('check text user input in', () => {
-    wrapped.find('textarea').simulate('change', {
-        target: {value: 'new comment'}
+
+describe('the text area', () => {
+    beforeEach(() => {
+        wrapped.find('textarea').simulate('change', {
+            target: {value: 'new comment'}
+        });
+        wrapped.update();
     });
-    wrapped.update();
-    expect (wrapped.find('textarea').prop('value')).toEqual('new comment');
+    it('check text user input in', () => {
+        expect (wrapped.find('textarea').prop('value')).toEqual('new comment');
+    });
+
+    it('check submit form', () => {
+        wrapped.find('form').simulate('submit');
+        wrapped.update();
+        expect(wrapped.find('textarea').prop('value')).toEqual('');
+    });
 });
