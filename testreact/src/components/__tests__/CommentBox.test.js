@@ -16,9 +16,9 @@ afterEach(() => {
     wrapped.unmount();
 });
 
-it ('has text area and button', () => {
+it ('has text area and 2 buttons', () => {
     expect(wrapped.find('textarea').length).toEqual(1);
-    expect(wrapped.find('button').length).toEqual(1);
+    expect(wrapped.find('button').length).toEqual(2);
 });
 
 //.simulate(event[, mock]) => Self
