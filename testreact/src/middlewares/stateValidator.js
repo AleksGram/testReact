@@ -1,4 +1,4 @@
-import tv4 from 'tv4';
+import tv4 from 'tv4'; //library for jsonscheme
 import stateSchema from './stateSchema';
 
 export default ({ dispatch, getState }) => (next) => (action) => {
